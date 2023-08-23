@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SearchForHeader from './SearchForHeader'
 
 export default function Header() {
     return (
@@ -7,13 +8,11 @@ export default function Header() {
             <div className='flex justify-around items-center bg-slate-500 p-[15px] '>
                 <div>
                     <Link to={""}>
-                        {/* <span>Newsify</span> */}
-                        <img src="logo.png" alt="Newsify" className='w-[150px] object-cover'/>
+                        <img src="logo.png" alt="Newsify" className='w-[150px] object-cover' />
                     </Link>
                 </div>
                 <div>
-                    <input type="text" />
-                    <button>Add</button>
+                    <SearchForHeader />
                 </div>
                 <div className='w-[63px]'>
                     <Link to={"basket"} >
@@ -21,7 +20,7 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-            <hr/>
+            <hr />
         </div>
     )
 }

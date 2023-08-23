@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className='bg-gray-600'>
       <CategoryCountry />
-      <div className='flex flex-wrap gap-[25px] justify-center items-center mt-[40px]  '>
+      <div className='flex flex-wrap gap-[25px] justify-center items-center mt-[50px]  '>
         {
           news.map((el) => {
             return (
