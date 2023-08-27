@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout"
 import Home from "../components/Home"
 import Basket from "../components/Basket"
 import Search from '../components/Search'
+import App from '../App'
 
 export default function Pages() {
 
@@ -14,7 +15,7 @@ export default function Pages() {
             children:[
                 {
                     path:"",
-                    element:<Home />
+                    element:<App />
                 },
                 {
                     path:"search",
