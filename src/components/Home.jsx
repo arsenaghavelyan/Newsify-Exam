@@ -36,7 +36,8 @@ export default function Home() {
         {
           news.map((el) => {
             return (
-                <div key={Math.random()} className='p-[10px] h-[550px] w-[420px]  bg-white shadow-[0_0px_10px_rgba(255,255,255,0.5)] rounded-[4px] mb-3 cursor-pointer' onClick={() => setSelectedNews(el)} >
+              <div key={Math.random()} className='p-[10px] h-[550px] w-[420px]  bg-white shadow-[0_0px_10px_rgba(255,255,255,0.5)] rounded-[4px] mb-3 cursor-pointer'  >
+                <div onClick={() => setSelectedNews(el)}>
                   <div>
                     <img src={el.urlToImage === null ? "no-image.jpg" : el.urlToImage} className='w-[470px] h-[300px] object-cover' alt='no image' />
                   </div>
@@ -52,12 +53,13 @@ export default function Home() {
                       <a href={el.url} target='black' className='text-blue-700 border-b border-blue-100 hover:border-blue-600 ' >Go to website</a>
                     </div>
                   </div>
-                  <div className='flex items-center justify-end mt-[4px] '>
-                    <span className='border-b hover:border-black'>Save & Share - </span>
-                    <img src="save-icon.png" className='h-[30px]' />
-                    <img src="share-icon.png" className='h-[35px]' />
-                  </div>
                 </div>
+                <div className='flex items-center justify-end mt-[4px] '>
+                  <span className='border-b hover:border-black'>Save & Share - </span>
+                  <img src="save-icon.png" className='h-[30px]' />
+                  <img src="share-icon.png" className='h-[35px]' />
+                </div>
+              </div>
             )
           })
         }

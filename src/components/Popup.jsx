@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default function Popup({ news, onClose }) {
+    const popupRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (popupRef.current && !popupRef.current.contains(event.target)) {
+            onClose();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [onClose]);
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-7  rounded-lg shadow-lg relative">
+            <div className="bg-white p-7  rounded-lg shadow-lg relative" ref={popupRef}>
                 <h1 className="text-xl font-semibold mb-2 w-[500px]">{news.title}</h1>
                 <img src={news.urlToImage === null ? "no-image.jpg" : news.urlToImage} className='w-[570px] h-[400px] object-cover' alt='no image' />
                 <p className='w-[700px] mt-3'>{news.content}</p>
