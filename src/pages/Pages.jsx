@@ -1,8 +1,7 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import MainLayout from "../layouts/MainLayout"
-import Home from "../components/Home"
-import Basket from "../components/Basket"
+import Saves from "../components/Saves"
 import Search from '../components/Search'
 import App from '../App'
 
@@ -23,7 +22,7 @@ export default function Pages() {
                 },
                 {
                     path:"basket",
-                    element:<Basket />
+                    element:<Saves />
                 }
             ]
         }

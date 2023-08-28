@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import Popup from './Popup';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToBasket, selectSaves } from '../store/slices/saveSlice';
 
 export default function Home({ info }) {
 
+  const [isSave, setIsSave] = useState(false)
+  const saves = useSelector(selectSaves)
 
+  const dispatch = useDispatch()
+  function handleSave() {
+    setIsSave(prev => !prev)
+    const filterSaves = isSave ? saves.filter(save => save.url !== info.url) : [...saves, info]
+
+    dispatch(addToBasket({ saveNews: filterSaves }))
+  }
 
   const [selectedNews, setSelectedNews] = useState(null)
   return (
@@ -28,7 +39,7 @@ export default function Home({ info }) {
         </div>
         <div className='flex items-center justify-end mt-[4px] '>
           <span className='border-b hover:border-black'>Save & Share - </span>
-          <img src="save-icon.png" className='h-[30px]' />
+          <img src={isSave ? "black-save-icon.png" : "save-icon.png"} onClick={handleSave} className='h-[30px]' />
           <img src="share-icon.png" className='h-[35px]' />
         </div>
       </div>

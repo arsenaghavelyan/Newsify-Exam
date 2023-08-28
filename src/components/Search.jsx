@@ -20,21 +20,17 @@ export default function Search() {
         })
     }, [search])
 
-    const [selectedNews, setSelectedNews] = useState(null)
     return (
         <div className='flex flex-wrap bg-gray-600 gap-[20px] justify-center items-center '>
             {
                 searchResult.map((el) => {
                     return (
-                        <div key={Math.random()} onClick={() => setSelectedNews(el)} >
+                        <div key={Math.random()}  >
                             <SearchNewsForm info={el} />
                         </div>
                     )
                 })
-            }
-            {selectedNews && (
-                <Popup news={selectedNews} onClose={() => setSelectedNews(null)} />
-            )}
+            }            
         </div>
     )
 }
