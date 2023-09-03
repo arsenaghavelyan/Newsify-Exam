@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const saveSlice = createSlice({
     name: "save",
     initialState: {
-        value: []
+        value: JSON.parse(localStorage.getItem("Save")) || []
     },
     reducers: {
         addToBasket(state, { payload }) {
             state.value = payload.saveNews
+            localStorage.setItem("Save", JSON.stringify(state.value))
         }
     }
 })

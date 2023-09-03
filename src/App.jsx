@@ -55,7 +55,7 @@ function App() {
           </button>
           
           <button
-            className={`${page * 20 < pageCount && page * 20 < 100 ? "w-[35px] h-[35px] bg-white border-white border-[1px] rounded-[50%]  flex justify-center items-center p-2 cursor-pointer mt-5" : "opacity-50 pointer-events-none w-[35px] h-[35px]  border-white border-[1px] rounded-[50%]  flex justify-center items-center p-2 cursor-pointer mt-5"} `}
+            className={`${page * 10 < pageCount  ? "w-[35px] h-[35px] bg-white border-white border-[1px] rounded-[50%]  flex justify-center items-center p-2 cursor-pointer mt-5" : "opacity-50 pointer-events-none w-[35px] h-[35px]  border-white border-[1px] rounded-[50%]  flex justify-center items-center p-2 cursor-pointer mt-5"} `}
             onClick={() => handlePageChange(page + 1)}
           >
             &gt;
